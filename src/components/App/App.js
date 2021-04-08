@@ -10,6 +10,7 @@ import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 import CommentCreate from '../Comment/CommentCreate'
 import Comments from '../Comment/CommentIndex'
+import Comment from '../Comment/CommentShow'
 
 class App extends Component {
   constructor () {
@@ -61,6 +62,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} exact path='/comment-index' render={() => (
             <Comments msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/comments/:id' render={(navProps) => (
+            <Comment {...navProps} msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
