@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
-
 import AuthenticatedRoute from '../AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from '../AutoDismissAlert/AutoDismissAlert'
 import Header from '../Header/Header'
@@ -11,6 +10,7 @@ import ChangePassword from '../ChangePassword/ChangePassword'
 import CommentCreate from '../Comment/CommentCreate'
 import Comments from '../Comment/CommentIndex'
 import Comment from '../Comment/CommentShow'
+import CommentEdit from '../Comment/CommentEdit'
 
 class App extends Component {
   constructor () {
@@ -62,6 +62,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} exact path='/comment-index' render={() => (
             <Comments msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/comments/:id/edit' render={(navProps) => (
+            <CommentEdit {...navProps} msgAlert={this.msgAlert} user={user} />
           )} />
           <AuthenticatedRoute user={user} exact path='/comments/:id' render={(navProps) => (
             <Comment {...navProps} msgAlert={this.msgAlert} user={user} />

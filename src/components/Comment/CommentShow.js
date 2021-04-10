@@ -66,7 +66,7 @@ const Comment = props => {
       <Link to={`/comments/${props.match.params.id}/edit`}>
         <button>Edit</button>
       </Link>
-      <Link to="/comments">Back to Your Comments</Link>
+      <Link to="/comment-index">Back to Your Comments</Link>
     </React.Fragment>
   )
 }
